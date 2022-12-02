@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md">
+  <div class="q-pa-md q-gutter-sm">
     <q-carousel
       swipeable
       animated
@@ -7,7 +7,6 @@
       thumbnails
       infinite
       arrows
-      height="400px"
       transition-prev="slide-right"
       transition-next="slide-left"
       v-model:fullscreen="fullscreen"

@@ -23,7 +23,7 @@
       </q-carousel-slide>
     </q-carousel>
 
-    <div class="row justify-center">
+    <!-- <div class="row justify-center">
       <q-btn-toggle
         v-model="slide"
         :options="[
@@ -32,7 +32,7 @@
           { label: 'youtube', value: 'ibiza' }
         ]"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 
