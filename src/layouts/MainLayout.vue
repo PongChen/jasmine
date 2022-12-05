@@ -1,7 +1,15 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar class="bg-dark">
+  <q-layout view="hHh Lpr lff">
+    <q-header elevated class="bg-cyan-8">
+      <q-toolbar class="">
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          @click="toggleLeftDrawer"
+        />
         <q-toolbar-title> 陈老师的教研园 </q-toolbar-title>
 
         <q-space />
@@ -72,7 +80,43 @@
         </div>
       </q-toolbar>
     </q-header>
-
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      elevated
+      class="bg-cyan-8 text-white"
+      content-class="bg-cyan-8 text-white"
+      :mini="miniState"
+      @mouseover="miniState = false"
+      @mouseout="miniState = true"
+    >
+      <q-scroll-area
+        style="
+          height: calc(100% - 0px);
+          margin-top: 0px;
+          border-right: 1px solid #ddd;
+        "
+      >
+        <q-list>
+          <!-- <q-item-label header> Essential Links </q-item-label> -->
+          <!-- <img
+          src="img/jx3/erengu.png"
+          style="width: 100%; height: 100%; object-fit: cover"
+        /> -->
+          <!-- <img
+            src="img/logo.png"
+            style="width: 100%; height: 100%; object-fit: cover"
+          /> -->
+          <EssentialLink
+            v-for="link in essentialLinks"
+            :key="link['name']"
+            :path="link['path']"
+            v-bind="link"
+          />
+        </q-list>
+      </q-scroll-area>
+    </q-drawer>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -80,15 +124,49 @@
 </template>
 
 <script>
+import EssentialLink from "components/EssentialLink.vue";
 import { defineComponent, ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useQuasar } from "quasar";
+const linksList = [
+  {
+    title: "原创绘本",
+    icon: "painting",
+    name: "Painting",
+    path: "/painting"
+  },
+  {
+    title: "自然拼读",
+    icon: "spelling",
+    name: "Spelling",
+    path: "/spelling"
+  },
+  {
+    title: "外教视频课",
+    icon: "videolesson",
+    name: "Videolesson",
+    path: "/videolesson"
+  },
+  {
+    title: "App资源研发",
+    icon: "appresource",
+    name: "AppResource",
+    path: "/appresource"
+  },
+  {
+    title: "教材教具研发",
+    icon: "teachingmaterial",
+    name: "TeachingMaterial",
+    path: "/teachingmaterial"
+  }
+];
 export default defineComponent({
   name: "MainLayout",
 
-  components: {},
+  components: { EssentialLink },
 
   setup() {
+    const leftDrawerOpen = ref(false);
     const $q = useQuasar();
     const username = ref("Jamine");
     const fktotal = ref(5);
@@ -112,6 +190,12 @@ export default defineComponent({
       });
     }
     return {
+      essentialLinks: linksList,
+      leftDrawerOpen,
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+      miniState: ref(true),
       fktotal,
       theme,
       tog1,
@@ -123,3 +207,8 @@ export default defineComponent({
   }
 });
 </script>
+<style lang="css" scoped>
+.mybg {
+  background: "#365767";
+}
+</style>

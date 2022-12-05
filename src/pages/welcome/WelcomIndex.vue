@@ -12,33 +12,28 @@
     </h2>
     <ul :class="logoclass">
       <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/app.png" />app
+        <a target="_blank" class="logotitle" @click="doSth(routes[0])">
+          <img src="img/painting.png" />绘本
         </a>
       </li>
       <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/card.png" />闪卡
+        <a target="_blank" class="logotitle" @click="doSth(routes[1])">
+          <img src="img/spelling.png" />拼读
         </a>
       </li>
       <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/huiben.png" />绘本
+        <a target="_blank" class="logotitle" @click="doSth(routes[2])">
+          <img src="img/videolesson.png" />音视频
         </a>
       </li>
       <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/jiaoyu.png" />教案
+        <a target="_blank" class="logotitle" @click="doSth(routes[3])">
+          <img src="img/appresource.png" />App
         </a>
       </li>
       <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/chatu.png" />插图
-        </a>
-      </li>
-      <li>
-        <a target="_blank" class="logotitle" @click="doSth">
-          <img src="img/shipin.png" />音视频
+        <a target="_blank" class="logotitle" @click="doSth(routes[4])">
+          <img src="img/teachingmaterial.png" />教材教具
         </a>
       </li>
     </ul>
@@ -72,8 +67,8 @@ export default {
     const buttonColor = computed(() => {
       return $q.screen.lt.md ? "primary" : "secondary";
     });
-    function doSth() {
-      router.push({ path: "/dashboard" }).catch((e) => {
+    function doSth(p) {
+      router.push({ path: p }).catch((e) => {
         console.log(e);
       });
     }
@@ -198,7 +193,14 @@ export default {
       particlesLoaded,
       doSth,
       particlesInit,
-      buttonColor
+      buttonColor,
+      routes: [
+        "painting",
+        "spelling",
+        "videolesson",
+        "appresource",
+        "teachingmaterial"
+      ]
     };
   }
 };
