@@ -2,7 +2,7 @@
   "name": "jasmine-app",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "productName": "Jasmine App",
   "author": "pong",
   "private": true,
   "scripts": {
@@ -25,6 +25,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@quasar/app-webpack": "^3.0.0",
+    "@quasar/quasar-app-extension-qmediaplayer": "^2.0.0-beta.6",
+    "@quasar/quasar-app-extension-qpdfviewer": "^2.0.0-alpha.6",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",

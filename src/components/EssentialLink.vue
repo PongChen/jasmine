@@ -1,7 +1,6 @@
 <template>
   <q-item
     clickable
-    target="_blank"
     v-ripple="{ color: 'yellow' }"
     :to="path"
     active-class="q-item-no-link-highlighting text-indigo-11 bg-cyan-13"

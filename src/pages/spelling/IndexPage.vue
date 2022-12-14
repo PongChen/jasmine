@@ -2,55 +2,87 @@
   <q-page class="q-pa-sm" padding>
     <div class="row q-col-gutter-sm q-py-sm">
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <ToolCard title="App资源研发" headColor="#66d1a1">
-          <Carousel></Carousel>
+        <ToolCard title="自拼二级-外教chant-U1L1 a ap at" headColor="#66d1a1">
+          <q-media-player
+            type="video"
+            :sources="src1"
+            content-height="520"
+            style="
+              --big-play-button-color: #fbc02d;
+              --big-play-button-background: #d32f2f;
+              --big-play-button-border: #ffff00;
+              --big-play-button-hover-color: #d32f2f;
+              --big-play-button-hover-background: #fbc02d;
+              --big-play-button-border: #fbc02d 2px solid;
+              --big-play-button-border-hover: #d32f2f 2px solid;
+              --big-play-button-color-dark: #fbc02d;
+              --big-play-button-background-dark: #d32f2f;
+              --big-play-button-border-dark: #ffff00;
+              --big-play-button-hover-color-dark: #d32f2f;
+              --big-play-button-hover-background-dark: #fbc02d;
+              --big-play-button-border-dark: #fbc02d 2px solid;
+              --big-play-button-border-hover-dark: #d32f2f 2px solid;
+              height: 520px;
+            "
+          />
         </ToolCard>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <ToolCard title="小优识字" headColor="#66d1a1">
-          <CarouselVideo></CarouselVideo>
+        <ToolCard title="自拼四级-外教chant-U1L1 bl cl" headColor="#66d1a1">
+          <q-media-player
+            type="video"
+            :sources="src2"
+            :content-height="520"
+            style="
+              --big-play-button-color: #fbc02d;
+              --big-play-button-background: #d32f2f;
+              --big-play-button-border: #ffff00;
+              --big-play-button-hover-color: #d32f2f;
+              --big-play-button-hover-background: #fbc02d;
+              --big-play-button-border: #fbc02d 2px solid;
+              --big-play-button-border-hover: #d32f2f 2px solid;
+              --big-play-button-color-dark: #fbc02d;
+              --big-play-button-background-dark: #d32f2f;
+              --big-play-button-border-dark: #ffff00;
+              --big-play-button-hover-color-dark: #d32f2f;
+              --big-play-button-hover-background-dark: #fbc02d;
+              --big-play-button-border-dark: #fbc02d 2px solid;
+              --big-play-button-border-hover-dark: #d32f2f 2px solid;
+              height: 520px;
+            "
+          />
         </ToolCard>
       </div>
     </div>
-    <div class="row q-col-gutter-sm q-py-sm">
-      <div class="col-md-6 col-sm-12 col-xs-12">
-        <ToolCard
-          title="原创绘本"
-          headColor="#ffeb3b"
-          :cardstyle="'height:717px !important;background: rgb(3 67 121)'"
-        >
-          <div style="height: 100%">asdadas</div>
-        </ToolCard>
-      </div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
-        <ToolCard title="教材教具研发" headColor="#ffeb3b"></ToolCard>
-      </div>
-    </div>
-    <q-page-scroller
-      position="bottom-right"
-      :scroll-offset="150"
-      :offset="[18, 18]"
-    >
-      <q-btn fab icon="keyboard_arrow_up" color="indigo" />
-    </q-page-scroller>
   </q-page>
 </template>
 
 <script>
 import { defineComponent, ref, onMounted } from "vue";
-import topAppVue from "./top-app.vue";
 import ToolCard from "../../components/toolcard";
-import Carousel from "./components/Carousel.vue";
-import CarouselVideo from "./components/CarouselVideo.vue";
 export default defineComponent({
   name: "IndexPage",
-  components: { Carousel, CarouselVideo, ToolCard },
+  components: { ToolCard },
   setup() {
     function refreshTable() {
       //
     }
+    const src1 = [
+      {
+        src: "http://store.giser.org.cn/jasminefiles/video/pindu2.mp4",
+        type: "video/mp4"
+      }
+    ];
+    const src2 = [
+      {
+        src: "http://store.giser.org.cn/jasminefiles/video/pindu4.mp4",
+        type: "video/mp4"
+      }
+    ];
+    const poster1 = "http://store.giser.org.cn/jasminefiles/img/trip.png";
+    const poster2 = "http://store.giser.org.cn/jasminefiles/img/king.png";
     onMounted(() => {});
-    return {};
+    return { src1, src2, poster1, poster2 };
   }
 });
 </script>

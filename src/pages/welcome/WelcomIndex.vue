@@ -8,7 +8,7 @@
     />
     <h3 ref="h3dom" class="animated_text">welcome to Jasmine.space</h3>
     <h2 :class="subtitleclass" :style="{ 'font-size': '' }">
-      未来教育新理念©Jasmine.Chen
+      探究未来教育©Jasmine.Chen
     </h2>
     <ul :class="logoclass">
       <li>
